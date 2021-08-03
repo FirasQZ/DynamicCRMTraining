@@ -44,7 +44,8 @@ namespace DynamicCRMWithCore
                                 Console.WriteLine("Please select with action need on account :");
                                 Console.WriteLine("1. Delete account");
                                 Console.WriteLine("2. Update account name");
-                                Console.WriteLine("2. Deactivation account");
+                                Console.WriteLine("3. Deactivation account");
+                                Console.WriteLine("4. Paging");
 
                                 int ActionQExpression = Convert.ToInt32(Console.ReadLine());
                                 switch (ActionQExpression)
@@ -76,6 +77,9 @@ namespace DynamicCRMWithCore
                                             case 2: obj_QueryExpressions.DeactivateAccountLateBound((Guid)obj_QueryExpressions.ListOfAccountID[ActionQExpression], obj_QueryExpressions.query, organizationService); break;
                                         }
                                         break;
+                                    case 4:
+                                        obj_QueryExpressions.PagingQueryExpression((Guid)obj_QueryExpressions.ListOfAccountID[ActionQExpression], organizationService,4,1,0);
+                                        break;
                                 }
                                 break;
 
@@ -87,7 +91,7 @@ namespace DynamicCRMWithCore
                                 Console.WriteLine("Please select with action need on account :");
                                 Console.WriteLine("1. Delete account");
                                 Console.WriteLine("2. Update account name");
-                                Console.WriteLine("2. Deactivation account");
+                                Console.WriteLine("3. Deactivation account");
 
                                 int ActionLINQ = Convert.ToInt32(Console.ReadLine());
                                 switch (ActionLINQ)
@@ -100,6 +104,9 @@ namespace DynamicCRMWithCore
                                         break;
                                     case 3:
                                         obj_LINQ.deactivateAccount(organizationService, (Guid)obj_LINQ.ListOfAccountID[1]);
+                                        break;
+                                    case 4:
+                                        obj_LINQ.PagingLINQ(organizationService, (Guid)obj_LINQ.ListOfAccountID[1],2);
                                         break;
                                 }
                                 break;

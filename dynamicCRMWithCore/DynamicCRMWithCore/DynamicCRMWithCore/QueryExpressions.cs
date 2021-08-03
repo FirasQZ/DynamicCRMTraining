@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DynamicCRMWithoutCore
 {
-    class QueryExpressions
+    class QueryExpressions  
     {
         public Guid id;
         public QueryExpression query;
@@ -183,7 +183,71 @@ namespace DynamicCRMWithoutCore
 
 
 
+        public void PagingQueryExpression(Guid _id, IOrganizationService _service,int queryCount,int pageNumber,int recordCount)
+        {
 
+            // Define the condition expression for retrieving records.
+            ConditionExpression pagecondition = new ConditionExpression();
+            pagecondition.AttributeName = "parentcustomerid";
+            pagecondition.Operator = ConditionOperator.Equal;
+            pagecondition.Values.Add(_id);
+
+            // Define the order expression to retrieve the records.
+            OrderExpression order = new OrderExpression();
+            order.AttributeName = "firstname";
+            order.OrderType = OrderType.Ascending;
+
+            // Create the query expression and add condition.
+            QueryExpression pagequery = new QueryExpression();
+            pagequery.EntityName = "contact";
+            pagequery.Criteria.AddCondition(pagecondition);
+            pagequery.Orders.Add(order);
+            pagequery.ColumnSet.AddColumns("firstname", "lastname");
+
+            // Assign the pageinfo properties to the query expression.
+            pagequery.PageInfo = new PagingInfo();
+            pagequery.PageInfo.Count = queryCount;
+            pagequery.PageInfo.PageNumber = pageNumber;
+
+            // The current paging cookie. When retrieving the first page, 
+            // pagingCookie should be null.
+            pagequery.PageInfo.PagingCookie = null;
+            Console.WriteLine("Retrieving sample account records in pages...\n");
+            Console.WriteLine("#\tAccount Name\t\tEmail Address");
+
+            while (true)
+            {
+                // Retrieve the page.
+                EntityCollection results = _service.RetrieveMultiple(pagequery);
+                if (results.Entities != null)
+                {
+                    // Retrieve all records from the result set.
+                    foreach (Contact acct in results.Entities)
+                    {
+                        Console.WriteLine("{0}.\t{1}\t{2}", ++recordCount, acct.FirstName,
+                                           acct.EMailAddress1);
+                    }
+                }
+
+                // Check for more records, if it returns true.
+                if (results.MoreRecords)
+                {
+                    Console.WriteLine("\n****************\nPage number {0}\n****************", pagequery.PageInfo.PageNumber);
+                    Console.WriteLine("#\tAccount Name\t\tEmail Address");
+
+                    // Increment the page number to retrieve the next page.
+                    pagequery.PageInfo.PageNumber++;
+
+                    // Set the paging cookie to the paging cookie returned from current results.
+                    pagequery.PageInfo.PagingCookie = results.PagingCookie;
+                }
+                else
+                {
+                    // If no more records are in the result nodes, exit the loop.
+                    break;
+                }
+            }
+        }   
 
 
         /// <summary>
@@ -215,7 +279,7 @@ namespace DynamicCRMWithoutCore
         // -- close Case using QueryExpression 
         public void cancelCase(IOrganizationService _service, Guid id)
         {
-
+/*
             var incidentResolution = new IncidentResolution
             {
                 Subject = "Resolved Sample Incident",
@@ -224,13 +288,13 @@ namespace DynamicCRMWithoutCore
             };
 
             // Close the incident with the resolution.
-            /*var closeIncidentRequest = new CloseIncidentRequest
+            var closeIncidentRequest = new CloseIncidentRequest
             {   
                 IncidentResolution = incidentResolution,
                 Status = new OptionSetValue((int)IncidentState.Canceled) // ProblemSolved
-            };*/
-            //_service.Execute(closeIncidentRequest);
-
+            };
+            _service.Execute(closeIncidentRequest);
+*/
         }
 
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "szNY+R/iIMtr77dc2XE6Hy8t3AHwrpBluAvjCiruGZmu2nzQUqR3DwKjGSlscP0lGKAZUxzrMPBLbZXpfbFJVw==",
+  "dgSpecHash": "WAy4G5PzbNT7LSZvzzl9GFoFIGxxmS+p9nDS4/BlT0wqyWFR76Nzd8nbN8YNQxHqtFDJ2VyHIFNV+kf8mKIvjQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\fquzaih\\Desktop\\DynamicCRM\\dynamicCRMWithCore\\DynamicCRMWithCore\\DynamicCRMWithCore\\DynamicCRMWithCore.csproj",
+  "projectFilePath": "C:\\Users\\fquzaih\\Desktop\\DynamicCRM\\New folder\\DynamicCRMTraining\\dynamicCRMWithCore\\DynamicCRMWithCore\\DynamicCRMWithCore\\DynamicCRMWithCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fquzaih\\.nuget\\packages\\log4net\\2.0.12\\log4net.2.0.12.nupkg.sha512",
     "C:\\Users\\fquzaih\\.nuget\\packages\\microsoft.extensions.configuration\\5.0.0\\microsoft.extensions.configuration.5.0.0.nupkg.sha512",

@@ -20,6 +20,9 @@ namespace DynamicCRMWithoutCore
         public QueryExpression query;
         public ArrayList ListOfAccountID = new ArrayList();
         public ArrayList ListOfCaseID = new ArrayList();
+        private static Guid _myUserId;
+        private static Guid _otherUserId;
+
 
         /// <summary>
         ///  Account proccess
@@ -198,17 +201,17 @@ namespace DynamicCRMWithoutCore
         {
 
             query = new QueryExpression("incident");
-            query.ColumnSet.AddColumns("title", "ticketnumber", "incidentid");
+            query.ColumnSet.AddColumns("title", "ticketnumber", "incidentid","statecode");
             EntityCollection result = _service.RetrieveMultiple(query);
             Console.WriteLine("All Case : ");
             int counter = 0;
-            foreach (var c in result.Entities)
+                 foreach (var c in result.Entities)
             {
                 counter++;
                 var incidentid = c.GetAttributeValue<Guid>("incidentid");
                 Guid id = incidentid;
                 ListOfCaseID.Add(id);
-                Console.WriteLine(counter + "- Title: " + c.Attributes["title"] + "   ID: " + id + "   Owner: " + c.Attributes["incidentid"]);
+                Console.WriteLine(counter + "- Title: " + c.Attributes["title"] + "   ID: " + id + "   Owner: " + c.Attributes["incidentid"] + "   statecode: " + c.Attributes["statecode"]);
             }
         }
 
@@ -216,24 +219,75 @@ namespace DynamicCRMWithoutCore
 
 
         // -- close Case using QueryExpression 
-        public void cancelCase(IOrganizationService _service, Guid id)
+        public void resolvelCase(IOrganizationService _service, Guid id)
         {
 
             var incidentResolution = new IncidentResolution
             {
                 Subject = "Resolved Sample Incident",
-                IncidentId = new EntityReference(Incident.EntityLogicalName, id)
+                IncidentId = new EntityReference(Incident.EntityLogicalName, id),
+                Description = "test"
             };
             // Close the incident with the resolution.
+            int x = (int)IncidentResolutionState.Completed;
             var closeIncidentRequest = new CloseIncidentRequest
             {
                 IncidentResolution = incidentResolution,
-                Status = new OptionSetValue((int)IncidentState.Canceled)
+                Status = new OptionSetValue(5)
             };
             _service.Execute(closeIncidentRequest);
             Console.WriteLine("  Incident closed.");
 
         }
 
+
+
+
+
+
+
+
+        /// <summary>
+        ///  Assign proccess
+        /// </summary>
+        /// <param name="_service"></param>
+        /// 
+
+        public void getUserSystem(IOrganizationService _service)
+        {
+            var userRequest = new WhoAmIRequest();
+            WhoAmIResponse user = (WhoAmIResponse)_service.Execute(userRequest);
+            // Current user.
+            _myUserId = user.UserId;
+            var querySystemUser = new QueryExpression
+            {
+                EntityName = SystemUser.EntityLogicalName,
+                ColumnSet = new ColumnSet(new String[] { "systemuserid", "fullname" }),
+                Criteria = new FilterExpression()
+            };
+
+            querySystemUser.Criteria.AddCondition("businessunitid",ConditionOperator.Equal, user.BusinessUnitId);
+            querySystemUser.Criteria.AddCondition("systemuserid",ConditionOperator.Equal, _myUserId);
+            // Excluding SYSTEM user.
+            querySystemUser.Criteria.AddCondition("lastname",ConditionOperator.NotEqual, "SYSTEM");
+            // Excluding INTEGRATION user.
+            querySystemUser.Criteria.AddCondition("lastname",ConditionOperator.NotEqual, "INTEGRATION");
+
+            DataCollection<Entity> otherUsers = _service.RetrieveMultiple(querySystemUser).Entities;
+
+            int count = _service.RetrieveMultiple(querySystemUser).Entities.Count;
+            if (count > 0)
+            {
+                _otherUserId = (Guid)otherUsers[count - 1].Attributes["systemuserid"];
+
+                Console.WriteLine("Retrieved new owner {0} for assignment.",otherUsers[count - 1].Attributes["fullname"]);
+            }
+            else
+            {
+                Console.WriteLine("No user");
+            }
+        }
+        
+        
     }
 }

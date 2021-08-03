@@ -131,5 +131,24 @@ namespace DynamicCRMWithoutCore
         {
             // using early bound
         }
+
+
+
+        public void PagingLINQ(IOrganizationService _service, Guid id,int pageSize)
+        {
+            ServiceContext svcContext = new ServiceContext(_service);
+            var accountsByPage = (from a in svcContext.AccountSet
+                                  select new Contact
+                                  {
+                                      FirstName = a.Name,
+                                  });
+            System.Console.WriteLine("Skip 3 accounts, then Take 5 accounts");
+            System.Console.WriteLine("======================================");
+            foreach (var a in accountsByPage.Skip(1 * pageSize).Take(pageSize))
+            {
+                System.Console.WriteLine(a.FirstName);
+            }
+
+        }
     }
 }

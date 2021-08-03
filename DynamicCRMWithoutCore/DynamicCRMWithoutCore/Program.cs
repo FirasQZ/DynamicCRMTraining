@@ -23,6 +23,7 @@ namespace DynamicCRMWithoutCore
                 Console.WriteLine("Please chose Entity to be start.....");
                 Console.WriteLine("1. Account  ");
                 Console.WriteLine("2. Case Entity");
+                Console.WriteLine("3. User");
                 int Entity = Convert.ToInt32(Console.ReadLine());
                 switch (Entity)
                 {
@@ -46,8 +47,7 @@ namespace DynamicCRMWithoutCore
                                 Console.WriteLine("Please select with action need on account :");
                                 Console.WriteLine("1. Delete account");
                                 Console.WriteLine("2. Update account name");
-                                Console.WriteLine("2. Deactivation account");
-
+                                Console.WriteLine("3. Deactivation account");                         
                                 int ActionQExpression = Convert.ToInt32(Console.ReadLine());
                                 switch (ActionQExpression)
                                 {
@@ -115,21 +115,27 @@ namespace DynamicCRMWithoutCore
                         break;
 
                     case 2:
-                        // -- get account Entity using Query Expression
                         QueryExpressions obj_QueryExpressionsCase = new QueryExpressions();
+
+                        // -- get account Entity using Query Expression
                         obj_QueryExpressionsCase.getCase(organizationService, obj_QueryExpressionsCase.query);
 
                         Console.WriteLine("Please chose Case whould you like proccess");
                         Console.WriteLine("Please chose  proccess");
-                        Console.WriteLine("1. cancel Case");
+                        Console.WriteLine("1. Resolve Case");
 
                         int Case = Convert.ToInt32(Console.ReadLine());
                         switch (Case)
                         {
                             case 1:
-                                obj_QueryExpressionsCase.cancelCase(organizationService,(Guid)obj_QueryExpressionsCase.ListOfCaseID[Case]);
+                                obj_QueryExpressionsCase.resolvelCase(organizationService, new Guid("e2e7dbdc-b7ea-476c-beeb-b5c675855a60") /*(Guid)obj_QueryExpressionsCase.ListOfCaseID[Case]*/);
                                 break;
                         }
+                        break;
+                    case 3:
+                        QueryExpressions obj_QueryExpressionsUser = new QueryExpressions();
+                        obj_QueryExpressionsUser.getUserSystem(organizationService);
+
                         break;
                 }
             }

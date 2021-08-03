@@ -5255,11 +5255,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fquzaih\\Desktop\\DynamicCRM\\dynamicCRMWithCore\\DynamicCRMWithCore\\DynamicCRMWithCore\\DynamicCRMWithCore.csproj",
+      "projectUniqueName": "C:\\Users\\fquzaih\\Desktop\\DynamicCRM\\New folder\\DynamicCRMTraining\\dynamicCRMWithCore\\DynamicCRMWithCore\\DynamicCRMWithCore\\DynamicCRMWithCore.csproj",
       "projectName": "DynamicCRMWithCore",
-      "projectPath": "C:\\Users\\fquzaih\\Desktop\\DynamicCRM\\dynamicCRMWithCore\\DynamicCRMWithCore\\DynamicCRMWithCore\\DynamicCRMWithCore.csproj",
+      "projectPath": "C:\\Users\\fquzaih\\Desktop\\DynamicCRM\\New folder\\DynamicCRMTraining\\dynamicCRMWithCore\\DynamicCRMWithCore\\DynamicCRMWithCore\\DynamicCRMWithCore.csproj",
       "packagesPath": "C:\\Users\\fquzaih\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fquzaih\\Desktop\\DynamicCRM\\dynamicCRMWithCore\\DynamicCRMWithCore\\DynamicCRMWithCore\\obj\\",
+      "outputPath": "C:\\Users\\fquzaih\\Desktop\\DynamicCRM\\New folder\\DynamicCRMTraining\\dynamicCRMWithCore\\DynamicCRMWithCore\\DynamicCRMWithCore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\fquzaih\\AppData\\Roaming\\NuGet\\NuGet.Config",
