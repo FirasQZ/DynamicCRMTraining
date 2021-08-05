@@ -259,6 +259,9 @@
     <Compile Include="Helper-Code\MyOrganizationSdkTypes.cs" />
     <Compile Include="LINQ.cs" />
     <Compile Include="LogHelper.cs" />
+    <Compile Include="Model\accountModel.cs" />
+    <Compile Include="Model\incidentModel.cs" />
+    <Compile Include="Model\systemUserModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryExpressions.cs" />

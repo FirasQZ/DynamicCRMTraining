@@ -33,4 +33,3 @@ C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWith
 C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMWithoutCore\obj\Debug\DynamicCRMWithoutCore.csproj.CopyComplete
 C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMWithoutCore\obj\Debug\DynamicCRMWithoutCore.exe
 C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMWithoutCore\obj\Debug\DynamicCRMWithoutCore.pdb
-C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMWithoutCore\obj\Debug\DynamicCRMWithoutCore.csproj.AssemblyReference.cache

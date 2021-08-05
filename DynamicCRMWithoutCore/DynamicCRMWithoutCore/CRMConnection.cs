@@ -54,10 +54,15 @@ namespace DynamicCRMWithoutCore
         {
             CrmServiceClient crmSvc = new CrmServiceClient(ConfigurationManager.ConnectionStrings["OAuthConnection2"].ConnectionString);
             _service = (IOrganizationService)crmSvc.OrganizationWebProxyClient != null ? (IOrganizationService)crmSvc.OrganizationWebProxyClient : (IOrganizationService)crmSvc.OrganizationServiceProxy;
-            crmSvc.Dispose();
             Console.WriteLine("success Connection");
             return _service;
 
+        }
+
+        public static IOrganizationService getContext()
+        {
+
+            return _service;
         }
     }
 }

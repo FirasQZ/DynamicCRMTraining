@@ -21,7 +21,7 @@ namespace DynamicCRMWithoutCore
         public ArrayList ListOfAccountID = new ArrayList();
         public ArrayList ListOfCaseID = new ArrayList();
         private static Guid _myUserId;
-        private static Guid _otherUserId;
+        private Guid _otherUserId;
 
 
         /// <summary>
@@ -197,29 +197,28 @@ namespace DynamicCRMWithoutCore
         /// 
 
         // -- get all case in dynamic  using QueryExpression 
-        public void getCase(IOrganizationService _service, QueryExpression query)
+        public Guid getIncident(IOrganizationService _service, QueryExpression query)
         {
 
             query = new QueryExpression("incident");
             query.ColumnSet.AddColumns("title", "ticketnumber", "incidentid","statecode");
             EntityCollection result = _service.RetrieveMultiple(query);
             Console.WriteLine("All Case : ");
-            int counter = 0;
-                 foreach (var c in result.Entities)
+            List<Guid> ListOfincIdent_idID = new List<Guid>();
+            foreach (var c in result.Entities)
             {
-                counter++;
                 var incidentid = c.GetAttributeValue<Guid>("incidentid");
                 Guid id = incidentid;
-                ListOfCaseID.Add(id);
-                Console.WriteLine(counter + "- Title: " + c.Attributes["title"] + "   ID: " + id + "   Owner: " + c.Attributes["incidentid"] + "   statecode: " + c.Attributes["statecode"]);
+                ListOfincIdent_idID.Add(id);
+                Console.WriteLine("- Title: " + c.Attributes["title"] );//+ "   ID: " + id + "   Owner: " + c.Attributes["incidentid"]
             }
+            Console.WriteLine("Please select incident : ");
+            int incident_id = Convert.ToInt32(Console.ReadLine());
+            return (Guid)ListOfincIdent_idID[incident_id];
         }
 
-
-
-
         // -- close Case using QueryExpression 
-        public void resolvelCase(IOrganizationService _service, Guid id)
+        public void resolvelIncident(IOrganizationService _service, Guid id)
         {
 
             var incidentResolution = new IncidentResolution
@@ -229,7 +228,6 @@ namespace DynamicCRMWithoutCore
                 Description = "test"
             };
             // Close the incident with the resolution.
-            int x = (int)IncidentResolutionState.Completed;
             var closeIncidentRequest = new CloseIncidentRequest
             {
                 IncidentResolution = incidentResolution,
@@ -240,54 +238,73 @@ namespace DynamicCRMWithoutCore
 
         }
 
-
-
-
-
-
-
-
-        /// <summary>
-        ///  Assign proccess
-        /// </summary>
-        /// <param name="_service"></param>
-        /// 
-
-        public void getUserSystem(IOrganizationService _service)
+        // get all user in system
+        public Guid getUserSystem(IOrganizationService _service)
         {
-            var userRequest = new WhoAmIRequest();
-            WhoAmIResponse user = (WhoAmIResponse)_service.Execute(userRequest);
-            // Current user.
-            _myUserId = user.UserId;
-            var querySystemUser = new QueryExpression
+            try
             {
-                EntityName = SystemUser.EntityLogicalName,
-                ColumnSet = new ColumnSet(new String[] { "systemuserid", "fullname" }),
-                Criteria = new FilterExpression()
-            };
+                var userRequest = new WhoAmIRequest();
+                WhoAmIResponse user = (WhoAmIResponse)_service.Execute(userRequest);
+                // Current user.
+                _myUserId = user.UserId;
+                var querySystemUser = new QueryExpression
+                {
+                    EntityName = SystemUser.EntityLogicalName,
+                    ColumnSet = new ColumnSet(new String[] { "systemuserid", "fullname" }),
+                    Criteria = new FilterExpression()
+                };
+                querySystemUser.Criteria.AddCondition("address1_telephone1", ConditionOperator.Equal,"0598801612");
+                DataCollection<Entity> otherUsers = _service.RetrieveMultiple(querySystemUser).Entities;
+                List<Guid> user_id = new List<Guid>();
+                if (otherUsers.Count > 0)
+                {
+                    for (int i =0;i< otherUsers.Count;i++)
+                    {
+                        _otherUserId = (Guid)otherUsers[i].Attributes["systemuserid"];
+                        user_id.Add(_otherUserId);
+                        Console.WriteLine(" owner {0} ", otherUsers[i].Attributes["fullname"] + " user id : " + _otherUserId);
+                    }
 
-            querySystemUser.Criteria.AddCondition("businessunitid",ConditionOperator.Equal, user.BusinessUnitId);
-            querySystemUser.Criteria.AddCondition("systemuserid",ConditionOperator.Equal, _myUserId);
-            // Excluding SYSTEM user.
-            querySystemUser.Criteria.AddCondition("lastname",ConditionOperator.NotEqual, "SYSTEM");
-            // Excluding INTEGRATION user.
-            querySystemUser.Criteria.AddCondition("lastname",ConditionOperator.NotEqual, "INTEGRATION");
-
-            DataCollection<Entity> otherUsers = _service.RetrieveMultiple(querySystemUser).Entities;
-
-            int count = _service.RetrieveMultiple(querySystemUser).Entities.Count;
-            if (count > 0)
-            {
-                _otherUserId = (Guid)otherUsers[count - 1].Attributes["systemuserid"];
-
-                Console.WriteLine("Retrieved new owner {0} for assignment.",otherUsers[count - 1].Attributes["fullname"]);
+                    Console.WriteLine("Please select user assign : ");
+                    int userAssign = Convert.ToInt32(Console.ReadLine());
+                    return (Guid)user_id[userAssign]; 
+                }
+                else
+                {
+                    Console.WriteLine("No user");
+                    return _otherUserId;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("No user");
+                return _otherUserId;
             }
         }
-        
-        
+
+
+        // -- assign a case from owner to another woner in same organization
+        public void assignIncidentToNewOwner(IOrganizationService _service, QueryExpression query)
+        {
+            try
+            {
+                // -- get all cases
+                Guid incident_id = getIncident(_service,query);
+                // -- get user system where phone = 0598801612 
+                Guid userAssign = getUserSystem(_service);
+                AssignRequest assign = new AssignRequest
+                {
+                    Assignee = new EntityReference(SystemUser.EntityLogicalName, userAssign),
+                    Target = new EntityReference(Incident.EntityLogicalName, incident_id)
+                };
+                _service.Execute(assign);
+            }
+            catch(Exception ex)
+            {
+            }
+        }
+
+
+   
+
     }
 }
