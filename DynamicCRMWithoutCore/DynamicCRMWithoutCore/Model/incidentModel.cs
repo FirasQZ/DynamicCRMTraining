@@ -12,7 +12,7 @@ namespace DynamicCRMWithoutCore.Model
 
         public Guid incidentId { get; set; }
 
-        public string incidentOwner { get; set; }
+        public Guid incidentOwner { get; set; }
 
     }
 }

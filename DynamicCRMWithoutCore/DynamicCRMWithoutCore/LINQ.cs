@@ -148,14 +148,13 @@ namespace DynamicCRMWithoutCore
                                 select new incidentModel
                                 {
                                     incidentName = a.GetAttributeValue<String>("title"),
-                                    incidentId = a.GetAttributeValue<Guid>("incidentid"),
-                                    incidentOwner = a.GetAttributeValue<String>("ownerid"),
+                                    incidentId = a.GetAttributeValue<Guid>("incidentid")
                                 };
                     Console.WriteLine("List of Incident : ");
                     List<Guid> ListOfincIdent_idID = new List<Guid>();
                     foreach (var c in query)
                     {
-                        ListOfincIdent_idID.Add(id);
+                        ListOfincIdent_idID.Add(c.incidentId);
                         Console.WriteLine(" - incident Name : " + c.incidentName);
                     }
 
