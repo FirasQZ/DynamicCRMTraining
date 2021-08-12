@@ -1,8 +1,0 @@
-C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMPlugin2\bin\Debug\DynamicCRMPlugin2.dll
-C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMPlugin2\bin\Debug\DynamicCRMPlugin2.pdb
-C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMPlugin2\bin\Debug\Microsoft.Xrm.Sdk.dll
-C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMPlugin2\bin\Debug\Microsoft.Xrm.Sdk.xml
-C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMPlugin2\obj\Debug\DynamicCRMPlugin2.csproj.CoreCompileInputs.cache
-C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMPlugin2\obj\Debug\DynamicCRMPlugin2.csproj.CopyComplete
-C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMPlugin2\obj\Debug\DynamicCRMPlugin2.dll
-C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMPlugin2\obj\Debug\DynamicCRMPlugin2.pdb
