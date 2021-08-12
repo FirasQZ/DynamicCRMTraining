@@ -1,0 +1,9 @@
+C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\Dynamic365Plugin\bin\Debug\Dynamic365Plugin.exe.config
+C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\Dynamic365Plugin\bin\Debug\Dynamic365Plugin.exe
+C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\Dynamic365Plugin\bin\Debug\Dynamic365Plugin.pdb
+C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\Dynamic365Plugin\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\Dynamic365Plugin\obj\Debug\Dynamic365Plugin.csproj.AssemblyReference.cache
+C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\Dynamic365Plugin\obj\Debug\Dynamic365Plugin.csproj.CoreCompileInputs.cache
+C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\Dynamic365Plugin\obj\Debug\Dynamic365Plugin.csproj.CopyComplete
+C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\Dynamic365Plugin\obj\Debug\Dynamic365Plugin.exe
+C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\Dynamic365Plugin\obj\Debug\Dynamic365Plugin.pdb

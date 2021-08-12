@@ -1,0 +1,4 @@
+C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\dynamicCRMWithCore\DynamicCRMWithCore\DynamicCRMPlugin\obj\Debug\netcoreapp3.1\DynamicCRMPlugin.csproj.AssemblyReference.cache
+C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\dynamicCRMWithCore\DynamicCRMWithCore\DynamicCRMPlugin\obj\Debug\netcoreapp3.1\DynamicCRMPlugin.AssemblyInfoInputs.cache
+C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\dynamicCRMWithCore\DynamicCRMWithCore\DynamicCRMPlugin\obj\Debug\netcoreapp3.1\DynamicCRMPlugin.AssemblyInfo.cs
+C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\dynamicCRMWithCore\DynamicCRMWithCore\DynamicCRMPlugin\obj\Debug\netcoreapp3.1\DynamicCRMPlugin.csproj.CoreCompileInputs.cache

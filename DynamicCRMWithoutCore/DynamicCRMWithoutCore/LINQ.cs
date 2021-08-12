@@ -120,21 +120,6 @@ namespace DynamicCRMWithoutCore
 
 
 
-        // -- Update Indo  account from dynamic using LINQ  ex:Account Name
-        public void updateInfoAccount(IOrganizationService _service, Guid id)
-        {
-            // using early bound
-        }
-
-
-
-
-        // -- Deactivation Indo  account from dynamic using LINQ  ex:Account Name
-        public void deactivateAccount(IOrganizationService _service, Guid id)
-        {
-            // using early bound
-        }
-
 
 
         // -- get Incident from dynamic 
@@ -205,7 +190,7 @@ namespace DynamicCRMWithoutCore
             return null;
         }
 
-        
+        // -- assign case to a new owner        
         public void assignIncidentToNewOwner(IOrganizationService _service)
         {
             try
@@ -225,5 +210,8 @@ namespace DynamicCRMWithoutCore
             {
             }
         }
+
+
+
     }
 }

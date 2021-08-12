@@ -19,6 +19,7 @@ C:\Users\fquzaih\Desktop\DynamicCRM\DynamicCRMWithoutCore\DynamicCRMWithoutCore\
 C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMWithoutCore\bin\Debug\DynamicCRMWithoutCore.exe.config
 C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMWithoutCore\bin\Debug\DynamicCRMWithoutCore.exe
 C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMWithoutCore\bin\Debug\DynamicCRMWithoutCore.pdb
+C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMWithoutCore\bin\Debug\Json.Net.dll
 C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMWithoutCore\bin\Debug\log4net.dll
 C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMWithoutCore\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
 C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMWithoutCore\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
@@ -33,3 +34,4 @@ C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWith
 C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMWithoutCore\obj\Debug\DynamicCRMWithoutCore.csproj.CopyComplete
 C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMWithoutCore\obj\Debug\DynamicCRMWithoutCore.exe
 C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMWithoutCore\obj\Debug\DynamicCRMWithoutCore.pdb
+C:\Users\fquzaih\Desktop\DynamicCRM\New folder\DynamicCRMTraining\DynamicCRMWithoutCore\DynamicCRMWithoutCore\obj\Debug\DynamicCRMWithoutCore.csproj.AssemblyReference.cache

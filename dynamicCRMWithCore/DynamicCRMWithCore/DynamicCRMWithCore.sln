@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicCRMWithCore", "DynamicCRMWithCore\DynamicCRMWithCore.csproj", "{180D308B-342B-4E1A-B8D4-93D3D00AFDF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicCRMWithCore", "DynamicCRMWithCore\DynamicCRMWithCore.csproj", "{180D308B-342B-4E1A-B8D4-93D3D00AFDF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicCRMPlugin", "DynamicCRMPlugin\DynamicCRMPlugin.csproj", "{F971CAFB-87B6-4A62-BD0A-9EE288B7E8B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{180D308B-342B-4E1A-B8D4-93D3D00AFDF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{180D308B-342B-4E1A-B8D4-93D3D00AFDF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{180D308B-342B-4E1A-B8D4-93D3D00AFDF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F971CAFB-87B6-4A62-BD0A-9EE288B7E8B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F971CAFB-87B6-4A62-BD0A-9EE288B7E8B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F971CAFB-87B6-4A62-BD0A-9EE288B7E8B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F971CAFB-87B6-4A62-BD0A-9EE288B7E8B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

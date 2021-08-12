@@ -88,9 +88,7 @@ namespace DynamicCRMWithoutCore
 
                                 Console.WriteLine("Please select with action need on account :");
                                 Console.WriteLine("1. Delete account");
-                                Console.WriteLine("2. Update account name");
-                                Console.WriteLine("3. Deactivation account");
-                                Console.WriteLine("4. All Incident");
+                                Console.WriteLine("2. All Incident");
 
                                 int ActionLINQ = Convert.ToInt32(Console.ReadLine());
                                 switch (ActionLINQ)
@@ -99,12 +97,6 @@ namespace DynamicCRMWithoutCore
                                         obj_LINQ.deleteAccount(organizationService, (Guid)obj_LINQ.ListOfAccountID[1]);
                                         break;
                                     case 2:
-                                        obj_LINQ.updateInfoAccount(organizationService, (Guid)obj_LINQ.ListOfAccountID[1]);
-                                        break;
-                                    case 3:
-                                        obj_LINQ.deactivateAccount(organizationService, (Guid)obj_LINQ.ListOfAccountID[1]);
-                                        break;
-                                    case 4:
                                         obj_LINQ.assignIncidentToNewOwner(organizationService);
                                         break;
                                 }
@@ -113,7 +105,7 @@ namespace DynamicCRMWithoutCore
                             case 3:
                                 // -- get account Entity using FetchXML.
                                 FetchXML obj_fetchXML = new FetchXML();
-                                obj_fetchXML.getAccount(organizationService);
+                                obj_fetchXML.avgXML(organizationService);
                                 break;
                         }
                         break;
