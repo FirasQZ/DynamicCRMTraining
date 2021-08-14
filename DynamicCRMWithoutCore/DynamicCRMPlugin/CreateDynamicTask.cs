@@ -13,13 +13,9 @@ namespace DynamicCRMPlugin
         {  
             try
             {
-                ITracingService tracingService = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
                 IPluginExecutionContext context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
                 if (context == null)
-                {
-                    throw new InvalidPluginExecutionException("Please try again for removed Account");
-                }
-
+                    return;          
                 IOrganizationServiceFactory serviceFactory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
                 IOrganizationService service = serviceFactory.CreateOrganizationService(context.UserId);
                 if (context.InputParameters.Contains("Target"))
@@ -29,7 +25,7 @@ namespace DynamicCRMPlugin
                         return;
                     EntityReference account = (EntityReference)context.InputParameters["Target"];
                     Entity preImageUOPAccount = (Entity)context.PreEntityImages["UOP"];
-                    if (preImageUOPAccount != null)
+                    if (preImageUOPAccount is Entity)
                     {
                         Guid preImageAccountId = preImageUOPAccount.GetAttributeValue<Guid>("accountid");
                         String preImageAccountName = preImageUOPAccount.GetAttributeValue<String>("name");
@@ -40,7 +36,7 @@ namespace DynamicCRMPlugin
                     }
                     else
                     {
-                        throw new InvalidPluginExecutionException("Account is deleted");
+                        throw new InvalidPluginExecutionException("Please try again for removed Account");
                     }
                 }
                 else
@@ -63,8 +59,7 @@ namespace DynamicCRMPlugin
             }
             catch (InvalidPluginExecutionException ex)
             {
-                throw new InvalidPluginExecutionException("Dont deleted Account" + ex.Message);
-
+                throw new Exception("A call to an external web service failed.", ex);
             }
         }
         // create new account 
@@ -73,14 +68,15 @@ namespace DynamicCRMPlugin
             try
             {
                 Entity newAccount = new Entity("account");
-                newAccount["name"] = "new_"+ accountName;
+                newAccount["name"] = "new_"+ accountName + 1;
                 _service.Create(newAccount);
             }
             catch (Exception ex)
             {
-                throw new InvalidPluginExecutionException("Dont created New Account" + ex.Message);
-
+                throw new InvalidPluginExecutionException("Please try again for removed Account" + ex.Message);
             }
         }
+
+
     }
 }
