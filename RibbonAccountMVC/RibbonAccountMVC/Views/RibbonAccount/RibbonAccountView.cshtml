@@ -1,0 +1,54 @@
+﻿@model RibbonAccountMVC.Models.AccountEntityModels
+
+@{
+    ViewBag.Title = "Ribbon Account View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/Content/RibbonAccountView.css")
+
+<h2>Ribbon Account View</h2>
+
+<div>
+    <h4>Account Information</h4>
+    @if (Convert.ToInt32(ViewBag.AccountStatus) == 1)
+    {
+        <span>No Account Exsist</span>
+        <table>
+            <tr>
+                <th>Account Name</th>
+                <th>Account ID</th>
+                <th>Emial</th>
+                <th>Telephone</th>
+                <th>Web site URL</th>
+                <th>Revenue</th>
+                <th>Owning User</th>
+            </tr>
+
+        </table>
+    }
+    else
+    {
+        <table>
+            <tr>
+                <th>Account Name</th>
+                <th>Account ID</th>
+                <th>Emial</th>
+                <th>Telephone</th>
+                <th>Web site URL</th>
+                <th>Revenue</th>
+                <th>Owning User</th>
+            </tr>
+            <tr>
+                <td>@Html.DisplayFor(model => model.AccountName)</td>
+                <td>@Html.DisplayFor(model => model.AccountID)</td>
+                <td>@Html.DisplayFor(model => model.emailaddress1)</td>
+                <td>@Html.DisplayFor(model => model.telephone1)</td>
+                <td>@Html.DisplayFor(model => model.WebsiteURL)</td>
+                <td>@Html.DisplayFor(model => model.RevenueValue)</td>
+                <td>@Html.DisplayFor(model => model.owninguser)</td>
+            </tr>
+        </table>
+
+    }
+</div>
+
