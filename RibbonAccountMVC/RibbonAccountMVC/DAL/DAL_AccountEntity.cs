@@ -12,7 +12,7 @@ using System.Web;
 
 namespace RibbonAccountMVC.DAL
 {
-    public class DAL_AccountEntity
+    public class DAL_AccountEntity // data access layer
     {
         private static readonly ILog log = LogHelper.GetLogger();
 
@@ -26,10 +26,10 @@ namespace RibbonAccountMVC.DAL
             {
                 using (OrganizationServiceContext orgSvcContext = new OrganizationServiceContext(OAuthConnection.getInstance()))
                 {
-                    var query_join = from a in orgSvcContext.CreateQuery("account")
+                    var AccountInfo = from a in orgSvcContext.CreateQuery("account")
                                      join b in orgSvcContext.CreateQuery("systemuser")
                                      on a["owninguser"] equals b["systemuserid"]
-                                     where a["accountid"] == accountId
+                                     where (String)a["accountid"] == accountId
                                      select new AccountEntityModels
                                      {
                                          AccountID = (Guid)a.GetAttributeValue<Guid>("accountid"),
@@ -42,7 +42,7 @@ namespace RibbonAccountMVC.DAL
                                          
                                      };
                     accountModel = new AccountEntityModels();
-                    foreach (AccountEntityModels entity in query_join)
+                    foreach (AccountEntityModels entity in AccountInfo)
                     {
                         if (entity.AccountName != null)
                             accountModel.AccountName = entity.AccountName;
